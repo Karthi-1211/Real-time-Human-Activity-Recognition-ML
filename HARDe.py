@@ -1,12 +1,6 @@
-# -----------------------------
-#   USAGE
-# -----------------------------
 # python human_activity_recognition_deque.py --model resnet-34_kinetics.onnx --classes action_recognition_kinetics.txt --input videos/example_activities.mp4
 # python human_activity_recognition_deque.py --model resnet-34_kinetics.onnx --classes action_recognition_kinetics.txt
 
-# -----------------------------
-#   IMPORTS
-# -----------------------------
 # Import the necessary packages
 from collections import deque
 import numpy as np
@@ -19,10 +13,9 @@ ap = argparse.ArgumentParser()
 ap.add_argument("-m", "--model", required=True, help="path to trained human activity recognition model")
 ap.add_argument("-c", "--classes", required=True, help="path to class labels file")
 ap.add_argument("-i", "--input", type=str, default="", help="optional path to video file")
-args = vars(ap.parse_args())
+args = vars(ap.parse_args()
 
-# Load the contents of the class labels file, then define the sample duration (i.e., # of frames for classification) and
-# sample size (i.e., the spatial dimensions of the frame)
+            
 CLASSES = open(args["classes"]).read().strip().split("\n")
 SAMPLE_DURATION = 16
 SAMPLE_SIZE = 112
